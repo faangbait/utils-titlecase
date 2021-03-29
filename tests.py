@@ -15,10 +15,11 @@ class TitleTestCase(unittest.TestCase):
             ("how to be smart","How to Be Smart"),
             ("about a boy", "About a Boy"),
             ("reading \'fight club\' through a postmodernist lens", "Reading \'Fight Club\' Through a Postmodernist Lens"),
-            ("I'm Henry VIII i am. henry viii i am, I am.", "I'm Henry VIII I Am. Henry VIII I Am, I Am."),
+            ("I'm Henry VIII, i am. henry viii, i am, I am.", "I'm Henry VIII, I Am. Henry VIII, I Am, I Am."),
+            #("a toyota rav4 is a car", "A Toyota RAV4 Is a Car"), # Will always fail in this library due to insufficient information
         ]
         for test in tests:
-            self.assertEqual(toTitleCase(test[0]), test[1])
+            self.assertEqual(test[1], toTitleCase(test[0]))
 
 if __name__ == '__main__':
     unittest.main()

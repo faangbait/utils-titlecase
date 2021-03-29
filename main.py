@@ -51,13 +51,14 @@ def toTitleCase(raw: str) -> str:
             if tokens:
                 for word in tokens:  # Check each word
 
-                    roman_numerals = re.match(r'^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$', word.upper())
 
                     punct = word[-1]  # Check for trailing punctuation mark
                     if punct.isalpha():
                         punct = ""
                     else:
                         word = word[:-1]
+
+                    roman_numerals = re.match(r'^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$', word.upper())
 
                     if word.lower() in stopwords:  # if it is excluded,
                         fragString += word.lower() + punct + " "  # make it lowercase
